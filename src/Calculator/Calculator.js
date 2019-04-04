@@ -20,9 +20,10 @@ class Calculator extends React.Component {
     })
 
     add = () => this.setState({result: this.state.number1 + this.state.number2})
-    substract =() => this.setState({result: this.state.number1 - this.state.number2})
+    subtract =() => this.setState({result: this.state.number1 - this.state.number2})
     multiply = () => this.setState({result: this.state.number1 * this.state.number2})
     divide = () => this.setState({result: this.state.number1 / this.state.number2})
+    
 
     render() {
         return (
@@ -66,11 +67,6 @@ class Calculator extends React.Component {
                     /
                 </button>
 
-                <button
-                    onClick={this.reset}
-                >
-                    reset
-                </button>
             </div>
         )
     }
