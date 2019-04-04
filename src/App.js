@@ -1,8 +1,9 @@
 import React from 'react';
-import Calculator from './Calculator'
+
+import Users from './Users/Users';
 
 const App = () => (
-  <Calculator />
+  <Users />
 )
 
 export default App;

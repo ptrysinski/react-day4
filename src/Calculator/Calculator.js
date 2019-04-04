@@ -1,5 +1,4 @@
 import React from 'react';
-import { isNumber } from 'util';
 
 
 class Calculator extends React.Component {
@@ -75,7 +74,7 @@ class Calculator extends React.Component {
 Calculator.defaultProps = {
     number1: 0,
     number2: 0,
-    result: 0,
+    result: null,
 }
 
 
