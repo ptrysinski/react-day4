@@ -8,6 +8,7 @@ import { Avatar } from '@material-ui/core';
 const ResultsItem = ({ user }) => {
 
     const name = user.name.first + ' ' + user.name.last
+    const email = user.email
 
     return (
         <ListItem
@@ -21,6 +22,10 @@ const ResultsItem = ({ user }) => {
         </ListItemAvatar>
         <ListItemText
             primary = {name}
+            secondary = {''}
+        />
+        <ListItemText
+            primary = {email}
             secondary = {''}
         />
         </ListItem>
