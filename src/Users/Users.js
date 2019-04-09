@@ -8,6 +8,7 @@ class Users extends React.Component {
         isLoading: false,
         isError: false,
         searchTerm: '',
+        searchEmail: ''
     }
 
     componentDidMount() {
@@ -24,6 +25,10 @@ class Users extends React.Component {
         searchTerm: event.target.value,
     })
 
+    searchEmailChangeHandler = (event) => this.setState({
+        searchEmail: event.target.value,
+    })
+
     render() {
 
         const filteredUsers = (
@@ -32,11 +37,16 @@ class Users extends React.Component {
             this.state.users.filter(
                 user => {
                     const name = (user.name.first + user.name.last).toLowerCase()
+                    const email = user.email
                     const searchTerm = this.state.searchTerm.toLowerCase()
+                    const searchEmail = this.state.searchEmail
                     const searchTermWithoutSpaces = searchTerm.replace(/ /g, '')
                     const searchTermWithoutDiacritics = searchTermWithoutSpaces.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
                     
-                    return name.includes(searchTermWithoutDiacritics)
+                    return(
+                        name.includes(searchTermWithoutDiacritics) && email.includes(searchEmail)
+                        )
+                        
                 }
             )
         ) 
@@ -44,8 +54,10 @@ class Users extends React.Component {
         return (
             <div>
                 <Search
-                    searchTermChangeHandler={this.searchTermChangeHandler} 
+                    searchTermChangeHandler={this.searchTermChangeHandler}
+                    searchEmailChangeHandler={this.searchEmailChangeHandler} 
                     searchTerm={this.state.searchTerm}
+                    searchEmail={this.searchEmail}
                 />
                 <List
                     users={filteredUsers}
