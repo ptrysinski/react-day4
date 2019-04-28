@@ -1,3 +1,6 @@
+React app with calculator and random users list, which you can search by name and/or email adress
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
